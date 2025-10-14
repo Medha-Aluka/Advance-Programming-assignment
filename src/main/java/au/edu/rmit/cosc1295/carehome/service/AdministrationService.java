@@ -11,7 +11,7 @@ public class AdministrationService {
   }
   public AdministrationRecord administerDose(String nurseId, Staff actor, String residentId, String med, String dose)
           throws AuthorizationException {
-    if(actor.getRole()!=Role.NURSE) throw new AuthorizationException();
+    if(actor.getRole()!=Role.NURSE && actor.getRole()!=Role.MANAGER) throw new AuthorizationException();
     AdministrationRecord rec = new AdministrationRecord(residentId, nurseId, med, dose);
     repo.save("AR-"+System.nanoTime(), rec);
     audit.log(nurseId,"ADMINISTER_DOSE","resident="+residentId+", med="+med+", dose="+dose);

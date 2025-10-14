@@ -11,7 +11,7 @@ public class PrescriptionService {
   }
   public Prescription add(String doctorId, Staff actor, String residentId, String med, String dose, String schedule)
           throws AuthorizationException {
-    if(actor.getRole()!=Role.DOCTOR)
+    if(actor.getRole()!=Role.DOCTOR && actor.getRole()!=Role.MANAGER)
         throw new AuthorizationException();
     Prescription p = new Prescription("P-"+System.nanoTime(), residentId, doctorId, med, dose, schedule);
     repo.save(p);
