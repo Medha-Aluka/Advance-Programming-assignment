@@ -97,6 +97,13 @@ public class DatabaseManager {
                     "('W1-R2-B3'), ('W1-R2-B4'), ('W1-R3-B1'), " +
                     "('W2-R1-B1'), ('W2-R1-B2'), ('W2-R2-B1')");
             }
+            
+            // Initialize default admin user if no users exist
+            rs = stmt.executeQuery("SELECT COUNT(*) FROM staff");
+            if (rs.next() && rs.getInt(1) == 0) {
+                stmt.execute("INSERT INTO staff (id, name, role, username, password_hash) " +
+                    "VALUES ('M-ADMIN', 'Admin', 'MANAGER', 'admin', 'admin')");
+            }
         }
     }
     
