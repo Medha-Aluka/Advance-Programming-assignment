@@ -1,0 +1,27 @@
+# IDE files
+.idea/
+*.iml
+
+# Build files
+target/
+*.class
+
+# Documentation and helper files (not part of assignment code)
+AUTO_COMMIT_INSTRUCTIONS.md
+QUICK_START.md
+GUI_LAYOUT_DESCRIPTION.md
+IMPLEMENTATION_SUMMARY.md
+PROJECT_COMPLETION_SUMMARY.md
+SETUP_GUIDE.md
+TESTING_CHECKLIST.md
+auto-commit.bat
+auto-commit.ps1
+
+# Maven wrapper (optional)
+.mvn/
+mvnw
+mvnw.cmd
+
+# Logs
+*.log
+actions.log
