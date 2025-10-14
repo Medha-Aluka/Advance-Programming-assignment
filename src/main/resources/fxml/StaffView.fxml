@@ -5,10 +5,10 @@
 
 <ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="au.edu.rmit.cosc1295.carehome.controller.StaffController"
-            fitToWidth="true" fitToHeight="true"
+            fitToWidth="true"
             style="-fx-background-color: linear-gradient(to bottom, #FFF3E0 0%, #ffffff 100%);">
     
-    <VBox spacing="15" style="-fx-padding: 15;">
+    <VBox spacing="15" style="-fx-padding: 15;" minHeight="800">
         
         <!-- Header with Icon -->
         <HBox spacing="10" alignment="CENTER_LEFT">
