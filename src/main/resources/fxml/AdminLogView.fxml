@@ -11,7 +11,7 @@
     <!-- Header with Icon -->
     <HBox spacing="10" alignment="CENTER_LEFT">
         <Label text="📜" style="-fx-font-size: 32px;"/>
-        <Label text="Audit Log & System Activity" 
+        <Label text="Audit Log &amp; System Activity" 
                style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #6A1B9A;"/>
     </HBox>
     
