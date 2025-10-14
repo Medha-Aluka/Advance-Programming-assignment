@@ -21,6 +21,8 @@ public class ResidentService {
     if(!b.isVacant())
         throw new BedOccupiedException();
     b.assignResident(r.getId()); r.setBedId(b.getId());
+    beds.save(b);
+    residents.save(r);
     audit.log(staffId,"ASSIGN_RESIDENT","resident="+residentId+", bed="+bedId);
   }
   public void moveResident(String staffId, String residentId, String toBedId)
@@ -28,7 +30,11 @@ public class ResidentService {
   {
     Resident r = residents.findById(residentId).orElseThrow(() -> new NotFoundException("Resident"));
     String fromBedId = r.getBedId();
-    if(fromBedId!=null) beds.findById(fromBedId).orElseThrow(() -> new NotFoundException("Bed(from)")).vacate();
+    if(fromBedId!=null) {
+        Bed fromBed = beds.findById(fromBedId).orElseThrow(() -> new NotFoundException("Bed(from)"));
+        fromBed.vacate();
+        beds.save(fromBed);
+    }
     assignResidentToBed(staffId, residentId, toBedId);
     audit.log(staffId,"MOVE_RESIDENT","resident="+residentId+", toBed="+toBedId);
   }

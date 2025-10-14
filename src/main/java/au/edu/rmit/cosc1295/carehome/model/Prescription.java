@@ -2,11 +2,15 @@ package au.edu.rmit.cosc1295.carehome.model;
 import java.time.LocalDateTime;
 public class Prescription {
   private final String id,residentId,doctorId,medicine,dose,schedule;
-  private final LocalDateTime createdAt=LocalDateTime.now();
+  private final LocalDateTime createdAt;
   public Prescription(String id,String r,String d,String m,String dose,String sched)
   {
+      this(id, r, d, m, dose, sched, LocalDateTime.now());
+  }
+  public Prescription(String id,String r,String d,String m,String dose,String sched, LocalDateTime createdAt)
+  {
       this.id=id; residentId=r; doctorId=d; medicine=m;
-      this.dose=dose; schedule=sched;
+      this.dose=dose; schedule=sched; this.createdAt=createdAt;
   }
   public String getId()
   {

@@ -3,8 +3,13 @@ import java.time.LocalDateTime;
 public class AdministrationRecord {
   private final String residentId, nurseId, medicine;
   private String dose;
-  private final LocalDateTime timestamp=LocalDateTime.now();
-  public AdministrationRecord(String r,String n,String m,String d){ residentId=r; nurseId=n; medicine=m; dose=d; }
+  private final LocalDateTime timestamp;
+  public AdministrationRecord(String r,String n,String m,String d){ 
+      this(r, n, m, d, LocalDateTime.now());
+  }
+  public AdministrationRecord(String r,String n,String m,String d, LocalDateTime timestamp){ 
+      residentId=r; nurseId=n; medicine=m; dose=d; this.timestamp=timestamp;
+  }
   public String getResidentId()
   {
       return residentId;

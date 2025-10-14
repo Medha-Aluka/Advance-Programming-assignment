@@ -3,99 +3,102 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="au.edu.rmit.cosc1295.carehome.controller.PrescriptionsController" 
-      spacing="15" style="-fx-padding: 15;">
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="au.edu.rmit.cosc1295.carehome.controller.PrescriptionsController"
+            fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;">
     
-    <Label text="Prescription Management" 
-           style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-    
-    <!-- Doctor Section: Add Prescription -->
-    <VBox spacing="10" style="-fx-background-color: #e3f2fd; -fx-padding: 15; -fx-background-radius: 5;">
-        <Label text="Add Prescription (Doctor Only - Must be on duty)" 
-               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1976d2;"/>
+    <VBox spacing="15" style="-fx-padding: 15;">
         
-        <GridPane hgap="10" vgap="10">
-            <Label text="Resident:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <ComboBox fx:id="residentBox" promptText="Select Resident" prefWidth="250"
-                      GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label text="Prescription Management" 
+               style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        
+        <!-- Doctor Section: Add Prescription -->
+        <VBox spacing="10" style="-fx-background-color: #e3f2fd; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Add Prescription (Doctor Only - Must be on duty)" 
+                   style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1976d2;"/>
             
-            <Label text="Medicine:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-            <TextField fx:id="medicineField" promptText="Medicine name" prefWidth="250"
-                       GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <GridPane hgap="10" vgap="10">
+                <Label text="Resident:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="residentBox" promptText="Select Resident" prefWidth="250"
+                          GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                
+                <Label text="Medicine:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="medicineField" promptText="Medicine name" prefWidth="250"
+                           GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                
+                <Label text="Dose:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="doseField" promptText="e.g., 500mg" prefWidth="250"
+                           GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                
+                <Label text="Schedule:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <TextField fx:id="scheduleField" promptText="e.g., 08:00, 14:00, 20:00" prefWidth="250"
+                           GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                
+                <Button text="Add Prescription" onAction="#onAddPrescription" 
+                        style="-fx-background-color: #1976d2; -fx-text-fill: white;"
+                        GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            </GridPane>
+        </VBox>
+        
+        <Separator/>
+        
+        <!-- Nurse Section: Administer Medication -->
+        <VBox spacing="10" style="-fx-background-color: #f3e5f5; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Administer Medication (Nurse Only - Must be on duty)" 
+                   style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #7b1fa2;"/>
             
-            <Label text="Dose:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <TextField fx:id="doseField" promptText="e.g., 500mg" prefWidth="250"
-                       GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <GridPane hgap="10" vgap="10">
+                <Label text="Resident:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="residentBox2" promptText="Select Resident" prefWidth="250"
+                          GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                
+                <Label text="Medicine:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="medicineField2" promptText="Medicine name" prefWidth="250"
+                           GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                
+                <Label text="Dose:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="doseField2" promptText="e.g., 500mg" prefWidth="250"
+                           GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                
+                <Button text="Administer Dose" onAction="#onAdminister" 
+                        style="-fx-background-color: #7b1fa2; -fx-text-fill: white;"
+                        GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            </GridPane>
+        </VBox>
+        
+        <Label fx:id="statusLabel" text="Ready." style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+        
+        <Separator/>
+        
+        <!-- View Prescriptions -->
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="View Prescriptions for:" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="viewResidentBox" promptText="Select Resident" prefWidth="250"/>
+                <Button text="Refresh" onAction="#onRefreshPrescriptions" 
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            </HBox>
             
-            <Label text="Schedule:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-            <TextField fx:id="scheduleField" promptText="e.g., 08:00, 14:00, 20:00" prefWidth="250"
-                       GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <Label text="Prescriptions:" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="prescriptionsTable" prefHeight="250" minHeight="250">
+                <columns>
+                    <TableColumn fx:id="medicineColumn" text="Medicine" prefWidth="150"/>
+                    <TableColumn fx:id="doseColumn" text="Dose" prefWidth="100"/>
+                    <TableColumn fx:id="scheduleColumn" text="Schedule" prefWidth="200"/>
+                    <TableColumn fx:id="doctorColumn" text="Doctor" prefWidth="100"/>
+                    <TableColumn fx:id="dateColumn" text="Date" prefWidth="150"/>
+                </columns>
+            </TableView>
             
-            <Button text="Add Prescription" onAction="#onAddPrescription" 
-                    style="-fx-background-color: #1976d2; -fx-text-fill: white;"
-                    GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-        </GridPane>
+            <Label text="Administration Records:" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="adminTable" prefHeight="250" minHeight="250">
+                <columns>
+                    <TableColumn fx:id="adminMedicineColumn" text="Medicine" prefWidth="150"/>
+                    <TableColumn fx:id="adminDoseColumn" text="Dose" prefWidth="100"/>
+                    <TableColumn fx:id="nurseColumn" text="Nurse" prefWidth="100"/>
+                    <TableColumn fx:id="adminDateColumn" text="Date/Time" prefWidth="200"/>
+                </columns>
+            </TableView>
+        </VBox>
     </VBox>
-    
-    <Separator/>
-    
-    <!-- Nurse Section: Administer Medication -->
-    <VBox spacing="10" style="-fx-background-color: #f3e5f5; -fx-padding: 15; -fx-background-radius: 5;">
-        <Label text="Administer Medication (Nurse Only - Must be on duty)" 
-               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #7b1fa2;"/>
-        
-        <GridPane hgap="10" vgap="10">
-            <Label text="Resident:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <ComboBox fx:id="residentBox2" promptText="Select Resident" prefWidth="250"
-                      GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            
-            <Label text="Medicine:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-            <TextField fx:id="medicineField2" promptText="Medicine name" prefWidth="250"
-                       GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-            
-            <Label text="Dose:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <TextField fx:id="doseField2" promptText="e.g., 500mg" prefWidth="250"
-                       GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-            
-            <Button text="Administer Dose" onAction="#onAdminister" 
-                    style="-fx-background-color: #7b1fa2; -fx-text-fill: white;"
-                    GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-        </GridPane>
-    </VBox>
-    
-    <Label fx:id="statusLabel" text="Ready." style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
-    
-    <Separator/>
-    
-    <!-- View Prescriptions -->
-    <VBox spacing="10" VBox.vgrow="ALWAYS">
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="View Prescriptions for:" style="-fx-font-weight: bold;"/>
-            <ComboBox fx:id="viewResidentBox" promptText="Select Resident" prefWidth="250"/>
-            <Button text="Refresh" onAction="#onRefreshPrescriptions" 
-                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
-        </HBox>
-        
-        <Label text="Prescriptions:" style="-fx-font-weight: bold;"/>
-        <TableView fx:id="prescriptionsTable" VBox.vgrow="ALWAYS" prefHeight="200">
-            <columns>
-                <TableColumn fx:id="medicineColumn" text="Medicine" prefWidth="150"/>
-                <TableColumn fx:id="doseColumn" text="Dose" prefWidth="100"/>
-                <TableColumn fx:id="scheduleColumn" text="Schedule" prefWidth="200"/>
-                <TableColumn fx:id="doctorColumn" text="Doctor" prefWidth="100"/>
-                <TableColumn fx:id="dateColumn" text="Date" prefWidth="150"/>
-            </columns>
-        </TableView>
-        
-        <Label text="Administration Records:" style="-fx-font-weight: bold;"/>
-        <TableView fx:id="adminTable" VBox.vgrow="ALWAYS" prefHeight="200">
-            <columns>
-                <TableColumn fx:id="adminMedicineColumn" text="Medicine" prefWidth="150"/>
-                <TableColumn fx:id="adminDoseColumn" text="Dose" prefWidth="100"/>
-                <TableColumn fx:id="nurseColumn" text="Nurse" prefWidth="100"/>
-                <TableColumn fx:id="adminDateColumn" text="Date/Time" prefWidth="200"/>
-            </columns>
-        </TableView>
-    </VBox>
-</VBox>
+</ScrollPane>
