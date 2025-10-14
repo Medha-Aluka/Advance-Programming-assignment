@@ -1,0 +1,242 @@
+/* RMIT Care Home Management System - Stylesheet */
+
+/* Root variables for consistent theming */
+.root {
+    -fx-primary-color: #2196F3;
+    -fx-secondary-color: #4CAF50;
+    -fx-accent-color: #FF9800;
+    -fx-background-color: #ffffff;
+    -fx-text-color: #333333;
+}
+
+/* TabPane styling */
+.tab-pane {
+    -fx-background-color: #fafafa;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #e0e0e0;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #e0e0e0;
+    -fx-background-radius: 5 5 0 0;
+    -fx-padding: 10 20 10 20;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #2196F3;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: white;
+}
+
+/* Button styling */
+.button {
+    -fx-background-radius: 4;
+    -fx-padding: 8 16 8 16;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-opacity: 0.9;
+}
+
+.button:pressed {
+    -fx-opacity: 0.8;
+}
+
+/* ComboBox styling */
+.combo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 4;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 4;
+}
+
+.combo-box:focused {
+    -fx-border-color: #2196F3;
+    -fx-border-width: 2;
+}
+
+/* TextField and PasswordField styling */
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-background-radius: 4;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 4;
+    -fx-padding: 6 10 6 10;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #2196F3;
+    -fx-border-width: 2;
+}
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f5f5f5;
+    -fx-font-weight: bold;
+    -fx-border-color: #ddd;
+}
+
+.table-view .table-cell {
+    -fx-padding: 5 10 5 10;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #e3f2fd;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+/* ListView styling */
+.list-view {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+}
+
+.list-cell {
+    -fx-padding: 8 10 8 10;
+}
+
+.list-cell:selected {
+    -fx-background-color: #e3f2fd;
+    -fx-text-fill: #1976d2;
+}
+
+.list-cell:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Label styling */
+.label {
+    -fx-text-fill: #333333;
+}
+
+/* ScrollPane styling */
+.scroll-pane {
+    -fx-background-color: white;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: white;
+}
+
+/* Separator styling */
+.separator {
+    -fx-padding: 5 0 5 0;
+}
+
+/* Alert Dialog styling */
+.alert {
+    -fx-background-color: white;
+}
+
+.alert .header-panel {
+    -fx-background-color: #2196F3;
+}
+
+.alert .header-panel .label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Custom bed visualization styles */
+.bed-vacant {
+    -fx-background-color: #e0e0e0;
+    -fx-border-color: #999;
+    -fx-border-width: 2;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+
+.bed-male {
+    -fx-background-color: #b3d9ff;
+    -fx-border-color: #0066cc;
+    -fx-border-width: 2;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+
+.bed-female {
+    -fx-background-color: #ffb3d9;
+    -fx-border-color: #cc0066;
+    -fx-border-width: 2;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+
+.bed-other {
+    -fx-background-color: #d9b3ff;
+    -fx-border-color: #6600cc;
+    -fx-border-width: 2;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+
+/* Status indicators */
+.status-success {
+    -fx-text-fill: #4CAF50;
+    -fx-font-weight: bold;
+}
+
+.status-error {
+    -fx-text-fill: #f44336;
+    -fx-font-weight: bold;
+}
+
+.status-warning {
+    -fx-text-fill: #FF9800;
+    -fx-font-weight: bold;
+}
+
+/* Grid styling for schedules */
+.grid-pane {
+    -fx-background-color: white;
+    -fx-padding: 10;
+}
+
+/* Dialog styling */
+.dialog-pane {
+    -fx-background-color: white;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}
+
+/* VBox and HBox common spacing */
+.vbox, .hbox {
+    -fx-spacing: 10;
+}
+
+/* Card-like containers */
+.card {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
