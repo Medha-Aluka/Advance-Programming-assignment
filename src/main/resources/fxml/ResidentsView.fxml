@@ -4,84 +4,121 @@
 <?import javafx.geometry.Insets?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="au.edu.rmit.cosc1295.carehome.controller.ResidentsController">
+            fx:controller="au.edu.rmit.cosc1295.carehome.controller.ResidentsController"
+            style="-fx-background-color: linear-gradient(to bottom, #e3f2fd 0%, #ffffff 100%);">
     
     <top>
-        <VBox spacing="10" style="-fx-padding: 10;">
-            <!-- Add New Resident Section -->
-            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-background-radius: 5;">
-                <Label text="Add New Resident:" style="-fx-font-weight: bold;"/>
-                <TextField fx:id="newResidentName" promptText="Name" prefWidth="150"/>
-                <ComboBox fx:id="newResidentGender" promptText="Gender" prefWidth="120"/>
-                <Button text="Add Resident" onAction="#onAddResident" 
-                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <VBox spacing="15" style="-fx-padding: 15;">
+            <!-- Header with Icon -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="👥" style="-fx-font-size: 32px;"/>
+                <Label text="Resident Management" 
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1565C0;"/>
             </HBox>
+            
+            <!-- Add New Resident Section -->
+            <VBox spacing="10" style="-fx-background-color: linear-gradient(to right, #66BB6A, #81C784); -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 2);">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="➕" style="-fx-font-size: 20px;"/>
+                    <Label text="Add New Resident" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="newResidentName" promptText="Full Name" prefWidth="200" 
+                               style="-fx-font-size: 13px; -fx-padding: 8;"/>
+                    <ComboBox fx:id="newResidentGender" promptText="Gender" prefWidth="120"
+                              style="-fx-font-size: 13px;"/>
+                    <Button text="✓ Add Resident" onAction="#onAddResident" 
+                            style="-fx-background-color: #2E7D32; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6;"/>
+                </HBox>
+            </VBox>
             
             <!-- Assign/Move Resident Section -->
-            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #e8f4f8; -fx-padding: 10; -fx-background-radius: 5;">
-                <Label text="Assign/Move Resident:" style="-fx-font-weight: bold;"/>
-                <ComboBox fx:id="residentBox" promptText="Select Resident" prefWidth="200"/>
-                <Label text="to Bed:"/>
-                <ComboBox fx:id="bedBox" promptText="Select Bed" prefWidth="150"/>
-                <Button text="Assign to Bed" onAction="#onAssign" 
-                        style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
-                <Button text="Move to Bed" onAction="#onMove" 
-                        style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
-            </HBox>
+            <VBox spacing="10" style="-fx-background-color: linear-gradient(to right, #42A5F5, #64B5F6); -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 2);">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="🛏️" style="-fx-font-size: 20px;"/>
+                    <Label text="Assign/Move Resident to Bed" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ComboBox fx:id="residentBox" promptText="Select Resident" prefWidth="220"
+                              style="-fx-font-size: 13px;"/>
+                    <Label text="→" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <ComboBox fx:id="bedBox" promptText="Select Bed" prefWidth="150"
+                              style="-fx-font-size: 13px;"/>
+                    <Button text="📍 Assign" onAction="#onAssign" 
+                            style="-fx-background-color: #1565C0; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6;"/>
+                    <Button text="🔄 Move" onAction="#onMove" 
+                            style="-fx-background-color: #F57C00; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6;"/>
+                </HBox>
+            </VBox>
             
-            <Label fx:id="statusLabel" text="Ready." style="-fx-font-weight: bold;"/>
-            <Separator/>
+            <Label fx:id="statusLabel" text="✓ Ready" style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #2E7D32;"/>
+            <Separator style="-fx-background-color: #BDBDBD;"/>
         </VBox>
     </top>
     
     <center>
-        <ScrollPane fitToWidth="true" fitToHeight="true">
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;">
             <VBox spacing="20" style="-fx-padding: 15;">
-                <Label text="Ward Layout - Bed Occupancy" 
-                       style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="🏥" style="-fx-font-size: 24px;"/>
+                    <Label text="Ward Layout - Bed Occupancy" 
+                           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1565C0;"/>
+                </HBox>
                 
                 <!-- Ward 1 -->
-                <VBox spacing="10" style="-fx-border-color: #333; -fx-border-width: 2; -fx-padding: 10; -fx-background-color: #fafafa;">
-                    <Label text="Ward 1" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0066cc;"/>
+                <VBox spacing="12" style="-fx-border-color: #1976D2; -fx-border-width: 3; -fx-padding: 15; -fx-background-color: linear-gradient(to bottom, #E3F2FD, #FFFFFF); -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 3);">
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="🏢" style="-fx-font-size: 20px;"/>
+                        <Label text="Ward 1" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0D47A1;"/>
+                    </HBox>
                     
                     <!-- Room 1 -->
-                    <HBox spacing="10" alignment="CENTER_LEFT">
-                        <Label text="Room 1:" style="-fx-font-weight: bold; -fx-min-width: 80px;"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #FAFAFA; -fx-padding: 8; -fx-background-radius: 6;">
+                        <Label text="🚪 Room 1:" style="-fx-font-weight: bold; -fx-min-width: 100px; -fx-font-size: 13px;"/>
                         <GridPane fx:id="ward1Room1Grid" hgap="10" vgap="10"/>
                     </HBox>
                     
                     <!-- Room 2 -->
-                    <HBox spacing="10" alignment="CENTER_LEFT">
-                        <Label text="Room 2:" style="-fx-font-weight: bold; -fx-min-width: 80px;"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #FAFAFA; -fx-padding: 8; -fx-background-radius: 6;">
+                        <Label text="🚪 Room 2:" style="-fx-font-weight: bold; -fx-min-width: 100px; -fx-font-size: 13px;"/>
                         <GridPane fx:id="ward1Room2Grid" hgap="10" vgap="10"/>
                     </HBox>
                     
                     <!-- Room 3 -->
-                    <HBox spacing="10" alignment="CENTER_LEFT">
-                        <Label text="Room 3:" style="-fx-font-weight: bold; -fx-min-width: 80px;"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #FAFAFA; -fx-padding: 8; -fx-background-radius: 6;">
+                        <Label text="🚪 Room 3:" style="-fx-font-weight: bold; -fx-min-width: 100px; -fx-font-size: 13px;"/>
                         <GridPane fx:id="ward1Room3Grid" hgap="10" vgap="10"/>
                     </HBox>
                 </VBox>
                 
                 <!-- Ward 2 -->
-                <VBox spacing="10" style="-fx-border-color: #333; -fx-border-width: 2; -fx-padding: 10; -fx-background-color: #fafafa;">
-                    <Label text="Ward 2" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0066cc;"/>
+                <VBox spacing="12" style="-fx-border-color: #388E3C; -fx-border-width: 3; -fx-padding: 15; -fx-background-color: linear-gradient(to bottom, #E8F5E9, #FFFFFF); -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 3);">
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="🏢" style="-fx-font-size: 20px;"/>
+                        <Label text="Ward 2" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1B5E20;"/>
+                    </HBox>
                     
                     <!-- Room 1 -->
-                    <HBox spacing="10" alignment="CENTER_LEFT">
-                        <Label text="Room 1:" style="-fx-font-weight: bold; -fx-min-width: 80px;"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #FAFAFA; -fx-padding: 8; -fx-background-radius: 6;">
+                        <Label text="🚪 Room 1:" style="-fx-font-weight: bold; -fx-min-width: 100px; -fx-font-size: 13px;"/>
                         <GridPane fx:id="ward2Room1Grid" hgap="10" vgap="10"/>
                     </HBox>
                     
                     <!-- Room 2 -->
-                    <HBox spacing="10" alignment="CENTER_LEFT">
-                        <Label text="Room 2:" style="-fx-font-weight: bold; -fx-min-width: 80px;"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #FAFAFA; -fx-padding: 8; -fx-background-radius: 6;">
+                        <Label text="🚪 Room 2:" style="-fx-font-weight: bold; -fx-min-width: 100px; -fx-font-size: 13px;"/>
                         <GridPane fx:id="ward2Room2Grid" hgap="10" vgap="10"/>
                     </HBox>
                 </VBox>
                 
-                <Label text="Legend: Blue=Male, Pink=Female, Grey=Vacant" 
-                       style="-fx-font-style: italic; -fx-text-fill: #666;"/>
+                <!-- Legend -->
+                <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-background-color: #FFF3E0; -fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #FF9800; -fx-border-width: 2; -fx-border-radius: 8;">
+                    <Label text="ℹ️" style="-fx-font-size: 16px;"/>
+                    <Label text="Legend:" style="-fx-font-weight: bold; -fx-font-size: 13px;"/>
+                    <Label text="🔵 Male" style="-fx-text-fill: #1976D2; -fx-font-weight: bold;"/>
+                    <Label text="🔴 Female" style="-fx-text-fill: #C2185B; -fx-font-weight: bold;"/>
+                    <Label text="⚪ Vacant" style="-fx-text-fill: #757575; -fx-font-weight: bold;"/>
+                </HBox>
             </VBox>
         </ScrollPane>
     </center>

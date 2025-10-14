@@ -2,14 +2,48 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+
 <VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="au.edu.rmit.cosc1295.carehome.controller.AdminLogController" spacing="10">
-    <padding>
-        <Insets top="10" right="10" bottom="10" left="10"/>
-    </padding>
-    <HBox spacing="10">
-        <Button text="Refresh Log" onAction="#onRefresh"/>
-        <Label text="Shows actions.log"/>
+      fx:controller="au.edu.rmit.cosc1295.carehome.controller.AdminLogController" 
+      spacing="15"
+      style="-fx-background-color: linear-gradient(to bottom, #F3E5F5 0%, #ffffff 100%); -fx-padding: 15;">
+    
+    <!-- Header with Icon -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="📜" style="-fx-font-size: 32px;"/>
+        <Label text="Audit Log & System Activity" 
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #6A1B9A;"/>
     </HBox>
-    <TextArea fx:id="logArea" prefRowCount="30" wrapText="true"/>
+    
+    <!-- Control Section -->
+    <HBox spacing="12" alignment="CENTER_LEFT" 
+          style="-fx-background-color: linear-gradient(to right, #9C27B0, #BA68C8); -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 2);">
+        <Label text="🔄" style="-fx-font-size: 20px;"/>
+        <Button text="Refresh Log" onAction="#onRefresh"
+                style="-fx-background-color: #6A1B9A; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 6; -fx-font-size: 13px;"/>
+        <Label text="•" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+        <Label text="📄 Displays actions.log file" 
+               style="-fx-text-fill: white; -fx-font-style: italic; -fx-font-size: 13px;"/>
+    </HBox>
+    
+    <!-- Log Display Area -->
+    <VBox spacing="10" VBox.vgrow="ALWAYS"
+          style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 2);">
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <Label text="📊" style="-fx-font-size: 18px;"/>
+            <Label text="Activity Timeline" 
+                   style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #6A1B9A;"/>
+        </HBox>
+        
+        <TextArea fx:id="logArea" prefRowCount="30" wrapText="true" VBox.vgrow="ALWAYS"
+                  style="-fx-font-family: 'Consolas', 'Monaco', monospace; -fx-font-size: 12px; -fx-background-color: #FAFAFA; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6;"/>
+    </VBox>
+    
+    <!-- Footer Info -->
+    <HBox spacing="8" alignment="CENTER_LEFT"
+          style="-fx-background-color: #FFF3E0; -fx-padding: 10; -fx-background-radius: 8; -fx-border-color: #FF9800; -fx-border-width: 2; -fx-border-radius: 8;">
+        <Label text="ℹ️" style="-fx-font-size: 16px;"/>
+        <Label text="All staff actions are automatically logged with timestamps for audit compliance" 
+               style="-fx-text-fill: #E65100; -fx-font-style: italic; -fx-font-size: 12px;"/>
+    </HBox>
 </VBox>

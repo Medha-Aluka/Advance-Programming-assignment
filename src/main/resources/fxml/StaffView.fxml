@@ -3,73 +3,110 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="au.edu.rmit.cosc1295.carehome.controller.StaffController" 
-      spacing="15" style="-fx-padding: 15;">
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="au.edu.rmit.cosc1295.carehome.controller.StaffController"
+            fitToWidth="true" fitToHeight="true"
+            style="-fx-background-color: linear-gradient(to bottom, #FFF3E0 0%, #ffffff 100%);">
     
-    <!-- Add New Staff Section -->
-    <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 5;">
-        <Label text="Add New Staff Member (Manager Only)" 
-               style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+    <VBox spacing="15" style="-fx-padding: 15;">
         
-        <GridPane hgap="10" vgap="10">
-            <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <TextField fx:id="newStaffName" promptText="Full Name" 
-                       prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            
-            <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-            <ComboBox fx:id="newStaffRole" promptText="Select Role" 
-                      prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-            
-            <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <TextField fx:id="newStaffUsername" promptText="Username" 
-                       prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-            
-            <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-            <PasswordField fx:id="newStaffPassword" promptText="Password" 
-                           prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-            
-            <Button text="Add Staff" onAction="#onAddStaff" 
-                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"
-                    GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-        </GridPane>
-    </VBox>
-    
-    <Separator/>
-    
-    <!-- Modify Staff Credentials Section -->
-    <VBox spacing="10" style="-fx-background-color: #e8f4f8; -fx-padding: 15; -fx-background-radius: 5;">
-        <Label text="Modify Staff Credentials (Manager Only)" 
-               style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-        
+        <!-- Header with Icon -->
         <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="Select Staff:"/>
-            <ComboBox fx:id="staffBox" prefWidth="250"/>
-            <Label text="New Username:"/>
-            <TextField fx:id="usernameField" promptText="username" prefWidth="150"/>
-            <Label text="New Password:"/>
-            <PasswordField fx:id="passwordField" promptText="password" prefWidth="150"/>
-            <Button text="Update Credentials" onAction="#onSave" 
-                    style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Label text="👨‍⚕️" style="-fx-font-size: 32px;"/>
+            <Label text="Staff Management" 
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #E65100;"/>
         </HBox>
-    </VBox>
-    
-    <Label fx:id="statusLabel" text="Ready." style="-fx-font-weight: bold;"/>
-    
-    <Separator/>
-    
-    <!-- Staff List Section -->
-    <VBox spacing="10" VBox.vgrow="ALWAYS">
-        <Label text="All Staff Members" 
-               style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
         
-        <TableView fx:id="staffTable" VBox.vgrow="ALWAYS">
-            <columns>
-                <TableColumn fx:id="idColumn" text="ID" prefWidth="80"/>
-                <TableColumn fx:id="nameColumn" text="Name" prefWidth="200"/>
-                <TableColumn fx:id="roleColumn" text="Role" prefWidth="120"/>
-                <TableColumn fx:id="usernameColumn" text="Username" prefWidth="150"/>
-            </columns>
-        </TableView>
+        <!-- Add New Staff Section -->
+        <VBox spacing="12" style="-fx-background-color: linear-gradient(to right, #66BB6A, #81C784); -fx-padding: 18; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 2);">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="➕" style="-fx-font-size: 20px;"/>
+                <Label text="Add New Staff Member (Manager Only)" 
+                       style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            </HBox>
+            
+            <GridPane hgap="12" vgap="12">
+                <Label text="👤 Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" 
+                       style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <TextField fx:id="newStaffName" promptText="Full Name" 
+                           prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                           style="-fx-font-size: 13px; -fx-padding: 8;"/>
+                
+                <Label text="🎭 Role:" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                       style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <ComboBox fx:id="newStaffRole" promptText="Select Role" 
+                          prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                          style="-fx-font-size: 13px;"/>
+                
+                <Label text="🔑 Username:" GridPane.columnIndex="0" GridPane.rowIndex="2"
+                       style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <TextField fx:id="newStaffUsername" promptText="Username" 
+                           prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                           style="-fx-font-size: 13px; -fx-padding: 8;"/>
+                
+                <Label text="🔒 Password:" GridPane.columnIndex="0" GridPane.rowIndex="3"
+                       style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <PasswordField fx:id="newStaffPassword" promptText="Password" 
+                               prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                               style="-fx-font-size: 13px; -fx-padding: 8;"/>
+                
+                <Button text="✓ Add Staff" onAction="#onAddStaff" 
+                        style="-fx-background-color: #2E7D32; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 6; -fx-font-size: 13px;"
+                        GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            </GridPane>
+        </VBox>
+        
+        <Separator style="-fx-background-color: #BDBDBD;"/>
+        
+        <!-- Modify Staff Credentials Section -->
+        <VBox spacing="12" style="-fx-background-color: linear-gradient(to right, #42A5F5, #64B5F6); -fx-padding: 18; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 2);">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="✏️" style="-fx-font-size: 20px;"/>
+                <Label text="Modify Staff Credentials (Manager Only)" 
+                       style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            </HBox>
+            
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="👤" style="-fx-font-size: 16px;"/>
+                <Label text="Staff:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <ComboBox fx:id="staffBox" prefWidth="200" style="-fx-font-size: 13px;"/>
+                
+                <Label text="🔑" style="-fx-font-size: 16px;"/>
+                <Label text="Username:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <TextField fx:id="usernameField" promptText="username" prefWidth="130"
+                           style="-fx-font-size: 13px; -fx-padding: 8;"/>
+                
+                <Label text="🔒" style="-fx-font-size: 16px;"/>
+                <Label text="Password:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <PasswordField fx:id="passwordField" promptText="password" prefWidth="130"
+                               style="-fx-font-size: 13px; -fx-padding: 8;"/>
+                
+                <Button text="💾 Update" onAction="#onSave" 
+                        style="-fx-background-color: #1565C0; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6;"/>
+            </HBox>
+        </VBox>
+        
+        <Label fx:id="statusLabel" text="✓ Ready" style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #2E7D32;"/>
+        
+        <Separator style="-fx-background-color: #BDBDBD;"/>
+        
+        <!-- Staff List Section -->
+        <VBox spacing="12" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 2);">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="📋" style="-fx-font-size: 20px;"/>
+                <Label text="All Staff Members" 
+                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #E65100;"/>
+            </HBox>
+            
+            <TableView fx:id="staffTable" VBox.vgrow="ALWAYS" prefHeight="400"
+                       style="-fx-background-radius: 6; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-border-radius: 6;">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="🆔 ID" prefWidth="100"/>
+                    <TableColumn fx:id="nameColumn" text="👤 Name" prefWidth="220"/>
+                    <TableColumn fx:id="roleColumn" text="🎭 Role" prefWidth="140"/>
+                    <TableColumn fx:id="usernameColumn" text="🔑 Username" prefWidth="160"/>
+                </columns>
+            </TableView>
+        </VBox>
     </VBox>
-</VBox>
+</ScrollPane>
