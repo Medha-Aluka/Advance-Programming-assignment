@@ -59,28 +59,43 @@ public class CareHomeApp extends Application {
         ButtonType loginButtonType = new ButtonType("Login", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
         
+        // Create main container
+        VBox mainContainer = new VBox(20);
+        mainContainer.setAlignment(Pos.CENTER);
+        mainContainer.setPadding(new Insets(20));
+        
+        // Healthcare logo/icon area
+        VBox logoBox = new VBox(5);
+        logoBox.setAlignment(Pos.CENTER);
+        Label logoIcon = new Label("🏥");
+        logoIcon.setStyle("-fx-font-size: 48px;");
+        Label systemName = new Label("Care Home Management System");
+        systemName.setStyle("-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2E86AB;");
+        Label subtitle = new Label("Healthcare Excellence");
+        subtitle.setStyle("-fx-font-size: 12px; -fx-text-fill: #666;");
+        logoBox.getChildren().addAll(logoIcon, systemName, subtitle);
+        
         // Create form fields
         GridPane grid = new GridPane();
         grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(20, 150, 10, 10));
+        grid.setVgap(15);
+        grid.setAlignment(Pos.CENTER);
+        grid.setPadding(new Insets(20));
         
         TextField username = new TextField();
         username.setPromptText("Username");
+        username.setPrefWidth(200);
         PasswordField password = new PasswordField();
         password.setPromptText("Password");
+        password.setPrefWidth(200);
         
         grid.add(new Label("Username:"), 0, 0);
         grid.add(username, 1, 0);
         grid.add(new Label("Password:"), 0, 1);
         grid.add(password, 1, 1);
         
-        // Add hint text
-        Label hintLabel = new Label("Default users:\nManager: mary/pass\nDoctor: sam/pass\nNurse: kim/pass");
-        hintLabel.setStyle("-fx-text-fill: gray; -fx-font-size: 10px;");
-        grid.add(hintLabel, 0, 2, 2, 1);
-        
-        dialog.getDialogPane().setContent(grid);
+        mainContainer.getChildren().addAll(logoBox, grid);
+        dialog.getDialogPane().setContent(mainContainer);
         
         // Convert result to Staff when login button is clicked
         dialog.setResultConverter(dialogButton -> {
