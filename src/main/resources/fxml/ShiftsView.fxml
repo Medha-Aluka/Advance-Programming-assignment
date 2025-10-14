@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="au.edu.rmit.cosc1295.carehome.controller.ShiftsController" 
+      spacing="15" style="-fx-padding: 15;">
+    
+    <Label text="Shift Management (Manager Only)" 
+           style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    
+    <!-- Assign Shift Section -->
+    <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 5;">
+        <Label text="Assign New Shift" 
+               style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+        
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Staff:"/>
+            <ComboBox fx:id="staffBox" promptText="Select staff" prefWidth="250"/>
+            
+            <Label text="Day:"/>
+            <ComboBox fx:id="dayBox" promptText="Day" prefWidth="120"/>
+            
+            <Label text="Start:"/>
+            <TextField fx:id="startField" promptText="HH:MM" prefWidth="80"/>
+            
+            <Label text="End:"/>
+            <TextField fx:id="endField" promptText="HH:MM" prefWidth="80"/>
+            
+            <Button text="Assign Shift" onAction="#onAssign" 
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        </HBox>
+        
+        <Label text="Rules: Max 8 hours per shift, 12 hours per day, 48 hours per week" 
+               style="-fx-font-style: italic; -fx-text-fill: #666; -fx-font-size: 11px;"/>
+    </VBox>
+    
+    <Label fx:id="statusLabel" text="Ready." style="-fx-font-weight: bold;"/>
+    
+    <Separator/>
+    
+    <!-- View Shifts Section -->
+    <VBox spacing="10" VBox.vgrow="ALWAYS">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="View Shifts for Staff:" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="viewStaffBox" promptText="Select staff" prefWidth="250"/>
+            <Button text="Refresh" onAction="#onRefresh" 
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+        </HBox>
+        
+        <!-- Shift Summary -->
+        <HBox spacing="20" style="-fx-background-color: #e8f4f8; -fx-padding: 10; -fx-background-radius: 5;">
+            <VBox spacing="5">
+                <Label text="Total Shifts:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="totalShiftsLabel" text="0" style="-fx-font-size: 14px;"/>
+            </VBox>
+            <VBox spacing="5">
+                <Label text="Weekly Hours:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="weeklyHoursLabel" text="0" style="-fx-font-size: 14px;"/>
+            </VBox>
+            <VBox spacing="5">
+                <Label text="Status:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="complianceLabel" text="Compliant" style="-fx-font-size: 14px;"/>
+            </VBox>
+        </HBox>
+        
+        <!-- Shifts List -->
+        <Label text="Assigned Shifts:" style="-fx-font-weight: bold;"/>
+        <ListView fx:id="shiftsList" VBox.vgrow="ALWAYS" prefHeight="300"/>
+        
+        <!-- Weekly Schedule Grid -->
+        <Label text="Weekly Schedule:" style="-fx-font-weight: bold;"/>
+        <GridPane fx:id="scheduleGrid" hgap="5" vgap="5" 
+                  style="-fx-border-color: #ccc; -fx-border-width: 1; -fx-padding: 10;"/>
+    </VBox>
+</VBox>

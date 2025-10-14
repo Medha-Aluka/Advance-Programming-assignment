@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<TabPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <Tab text="Residents" closable="false">
+        <fx:include source="ResidentsView.fxml"/>
+    </Tab>
+    <Tab text="Staff" closable="false">
+        <fx:include source="StaffView.fxml"/>
+    </Tab>
+    <Tab text="Shifts" closable="false">
+        <fx:include source="ShiftsView.fxml"/>
+    </Tab>
+    <Tab text="Prescriptions" closable="false">
+        <fx:include source="PrescriptionsView.fxml"/>
+    </Tab>
+    <Tab text="Admin Log" closable="false">
+        <fx:include source="AdminLogView.fxml"/>
+    </Tab>
+</TabPane>

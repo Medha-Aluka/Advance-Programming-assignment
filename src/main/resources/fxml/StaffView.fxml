@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="au.edu.rmit.cosc1295.carehome.controller.StaffController" 
+      spacing="15" style="-fx-padding: 15;">
+    
+    <!-- Add New Staff Section -->
+    <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 5;">
+        <Label text="Add New Staff Member (Manager Only)" 
+               style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+        
+        <GridPane hgap="10" vgap="10">
+            <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="newStaffName" promptText="Full Name" 
+                       prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            
+            <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <ComboBox fx:id="newStaffRole" promptText="Select Role" 
+                      prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            
+            <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="newStaffUsername" promptText="Username" 
+                       prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            
+            <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <PasswordField fx:id="newStaffPassword" promptText="Password" 
+                           prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            
+            <Button text="Add Staff" onAction="#onAddStaff" 
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"
+                    GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        </GridPane>
+    </VBox>
+    
+    <Separator/>
+    
+    <!-- Modify Staff Credentials Section -->
+    <VBox spacing="10" style="-fx-background-color: #e8f4f8; -fx-padding: 15; -fx-background-radius: 5;">
+        <Label text="Modify Staff Credentials (Manager Only)" 
+               style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+        
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Select Staff:"/>
+            <ComboBox fx:id="staffBox" prefWidth="250"/>
+            <Label text="New Username:"/>
+            <TextField fx:id="usernameField" promptText="username" prefWidth="150"/>
+            <Label text="New Password:"/>
+            <PasswordField fx:id="passwordField" promptText="password" prefWidth="150"/>
+            <Button text="Update Credentials" onAction="#onSave" 
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+        </HBox>
+    </VBox>
+    
+    <Label fx:id="statusLabel" text="Ready." style="-fx-font-weight: bold;"/>
+    
+    <Separator/>
+    
+    <!-- Staff List Section -->
+    <VBox spacing="10" VBox.vgrow="ALWAYS">
+        <Label text="All Staff Members" 
+               style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+        
+        <TableView fx:id="staffTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="80"/>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="200"/>
+                <TableColumn fx:id="roleColumn" text="Role" prefWidth="120"/>
+                <TableColumn fx:id="usernameColumn" text="Username" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="au.edu.rmit.cosc1295.carehome.controller.ResidentsController">
+    
+    <top>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <!-- Add New Resident Section -->
+            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-background-radius: 5;">
+                <Label text="Add New Resident:" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="newResidentName" promptText="Name" prefWidth="150"/>
+                <ComboBox fx:id="newResidentGender" promptText="Gender" prefWidth="120"/>
+                <Button text="Add Resident" onAction="#onAddResident" 
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            </HBox>
+            
+            <!-- Assign/Move Resident Section -->
+            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #e8f4f8; -fx-padding: 10; -fx-background-radius: 5;">
+                <Label text="Assign/Move Resident:" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="residentBox" promptText="Select Resident" prefWidth="200"/>
+                <Label text="to Bed:"/>
+                <ComboBox fx:id="bedBox" promptText="Select Bed" prefWidth="150"/>
+                <Button text="Assign to Bed" onAction="#onAssign" 
+                        style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+                <Button text="Move to Bed" onAction="#onMove" 
+                        style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
+            </HBox>
+            
+            <Label fx:id="statusLabel" text="Ready." style="-fx-font-weight: bold;"/>
+            <Separator/>
+        </VBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <VBox spacing="20" style="-fx-padding: 15;">
+                <Label text="Ward Layout - Bed Occupancy" 
+                       style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                
+                <!-- Ward 1 -->
+                <VBox spacing="10" style="-fx-border-color: #333; -fx-border-width: 2; -fx-padding: 10; -fx-background-color: #fafafa;">
+                    <Label text="Ward 1" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0066cc;"/>
+                    
+                    <!-- Room 1 -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Room 1:" style="-fx-font-weight: bold; -fx-min-width: 80px;"/>
+                        <GridPane fx:id="ward1Room1Grid" hgap="10" vgap="10"/>
+                    </HBox>
+                    
+                    <!-- Room 2 -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Room 2:" style="-fx-font-weight: bold; -fx-min-width: 80px;"/>
+                        <GridPane fx:id="ward1Room2Grid" hgap="10" vgap="10"/>
+                    </HBox>
+                    
+                    <!-- Room 3 -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Room 3:" style="-fx-font-weight: bold; -fx-min-width: 80px;"/>
+                        <GridPane fx:id="ward1Room3Grid" hgap="10" vgap="10"/>
+                    </HBox>
+                </VBox>
+                
+                <!-- Ward 2 -->
+                <VBox spacing="10" style="-fx-border-color: #333; -fx-border-width: 2; -fx-padding: 10; -fx-background-color: #fafafa;">
+                    <Label text="Ward 2" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0066cc;"/>
+                    
+                    <!-- Room 1 -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Room 1:" style="-fx-font-weight: bold; -fx-min-width: 80px;"/>
+                        <GridPane fx:id="ward2Room1Grid" hgap="10" vgap="10"/>
+                    </HBox>
+                    
+                    <!-- Room 2 -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Room 2:" style="-fx-font-weight: bold; -fx-min-width: 80px;"/>
+                        <GridPane fx:id="ward2Room2Grid" hgap="10" vgap="10"/>
+                    </HBox>
+                </VBox>
+                
+                <Label text="Legend: Blue=Male, Pink=Female, Grey=Vacant" 
+                       style="-fx-font-style: italic; -fx-text-fill: #666;"/>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
