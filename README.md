@@ -1,15 +1,15 @@
-# 🏥 Care Home Management System
+# Care Home Management System
 **A Complete JavaFX Application for Healthcare Facility Management**
 
 *Student Project by Medha Aluka - RMIT University COSC1295*
 
 ---
 
-## 📋 Project Overview
+## Project Overview
 
-This is a comprehensive **Care Home Management System** built using **JavaFX** that demonstrates advanced Java programming concepts, object-oriented design principles, and modern GUI development. The system manages residents, staff, shifts, prescriptions, and maintains complete audit trails for healthcare compliance.
+This is a comprehensive Care Home Management System built using JavaFX that demonstrates advanced Java programming concepts, object-oriented design principles, and modern GUI development. The system manages residents, staff, shifts, prescriptions, and maintains complete audit trails for healthcare compliance.
 
-### 🎯 What This Project Demonstrates
+## What This Project Demonstrates
 
 - **Object-Oriented Programming**: Inheritance, polymorphism, encapsulation
 - **Design Patterns**: Singleton, MVC, Repository, Service Layer
@@ -21,7 +21,7 @@ This is a comprehensive **Care Home Management System** built using **JavaFX** t
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - **Java 17+** (OpenJDK or Oracle JDK)
@@ -37,7 +37,7 @@ This is a comprehensive **Care Home Management System** built using **JavaFX** t
    ```
 
 2. **Build and run:**
-```bash
+   ```bash
    # Windows
    .\mvnw.cmd javafx:run
    
@@ -52,7 +52,7 @@ This is a comprehensive **Care Home Management System** built using **JavaFX** t
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ### Package Structure
 ```
@@ -123,49 +123,49 @@ au.edu.rmit.cosc1295.carehome/
 
 ---
 
-## 🎨 Features & Functionality
+## Features & Functionality
 
-### 1. 👥 Resident Management
-- **Add new residents** with name and gender
-- **Assign residents to beds** with visual bed layout
-- **Move residents between beds** with automatic bed management
-- **Visual ward layout** with color-coded gender indicators:
-  - 🔵 **Blue**: Male residents
-  - 🔴 **Pink**: Female residents  
-  - ⚪ **Grey**: Vacant beds
-- **Click beds** to view resident details
+### 1. Resident Management
+- Add new residents with name and gender
+- Assign residents to beds with visual bed layout
+- Move residents between beds with automatic bed management
+- Visual ward layout with color-coded gender indicators:
+  - **Blue**: Male residents
+  - **Pink**: Female residents  
+  - **Grey**: Vacant beds
+- Click beds to view resident details
 
-### 2. 👨‍💼 Staff Management (Manager Only)
-- **Add new staff** (Managers, Doctors, Nurses)
-- **Modify staff credentials** (username/password)
-- **View all staff** in organized table format
-- **Role-based access control** enforcement
+### 2. Staff Management (Manager Only)
+- Add new staff (Managers, Doctors, Nurses)
+- Modify staff credentials (username/password)
+- View all staff in organized table format
+- Role-based access control enforcement
 
-### 3. ⏰ Shift Management (Manager Only)
-- **Assign shifts** to staff members
-- **Visual weekly schedule** grid
-- **Automatic compliance checking**:
+### 3. Shift Management (Manager Only)
+- Assign shifts to staff members
+- Visual weekly schedule grid
+- Automatic compliance checking:
   - Maximum 8 hours per shift
   - Maximum 12 hours per day
   - Maximum 48 hours per week
   - No overlapping shifts allowed
-- **Real-time statistics** and compliance indicators
+- Real-time statistics and compliance indicators
 
-### 4. 💊 Prescription Management
+### 4. Prescription Management
 - **Doctors**: Add prescriptions (must be on duty)
 - **Nurses**: Administer medications (must be on duty)
-- **View prescriptions** and administration records by resident
-- **Authorization and roster checking** for all clinical actions
+- View prescriptions and administration records by resident
+- Authorization and roster checking for all clinical actions
 
-### 5. 📋 Audit Logging
-- **Complete action tracking** with timestamps
-- **Staff ID logging** for accountability
-- **Viewable audit trail** in the application
-- **Regulatory compliance** support
+### 5. Audit Logging
+- Complete action tracking with timestamps
+- Staff ID logging for accountability
+- Viewable audit trail in the application
+- Regulatory compliance support
 
 ---
 
-## 🔐 Security & Authorization
+## Security & Authorization
 
 ### Role-Based Access Control
 - **Manager**: Full system access
@@ -185,29 +185,29 @@ au.edu.rmit.cosc1295.carehome/
 
 ---
 
-## 🧪 Business Rules & Validation
+## Business Rules & Validation
 
 ### Shift Management Rules
-1. ✅ Maximum 8 hours per single shift
-2. ✅ Maximum 12 hours per day
-3. ✅ Maximum 48 hours per week
-4. ✅ No overlapping shifts allowed
-5. ✅ Exceptions thrown on rule violations
+1. Maximum 8 hours per single shift
+2. Maximum 12 hours per day
+3. Maximum 48 hours per week
+4. No overlapping shifts allowed
+5. Exceptions thrown on rule violations
 
 ### Bed Assignment Rules
-1. ✅ Cannot assign resident to occupied bed
-2. ✅ Moving resident automatically vacates previous bed
-3. ✅ Visual color-coding by gender
+1. Cannot assign resident to occupied bed
+2. Moving resident automatically vacates previous bed
+3. Visual color-coding by gender
 
 ### Clinical Action Rules
-1. ✅ Only doctors can prescribe medications
-2. ✅ Only nurses can administer medications
-3. ✅ Must be on duty (rostered) for clinical actions
-4. ✅ All actions logged for audit trail
+1. Only doctors can prescribe medications
+2. Only nurses can administer medications
+3. Must be on duty (rostered) for clinical actions
+4. All actions logged for audit trail
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 | Technology | Version | Purpose |
 |------------|---------|---------|
@@ -220,7 +220,7 @@ au.edu.rmit.cosc1295.carehome/
 
 ---
 
-## 📊 Data Model
+## Data Model
 
 ### Class Hierarchy
 ```
@@ -241,9 +241,9 @@ Exception (built-in)
 
 ### Sample Data
 **Staff Members:**
-- Manager: admin (admin/admin)
-- Dr. Akshay (parthu/parthu)
-- Nurse Madhu (madhu/madhu)
+- Manager: admin
+- Dr. Akshay
+- Nurse Madhu
 
 **Residents:**
 - Kishan - Male
@@ -255,29 +255,29 @@ Exception (built-in)
 
 ---
 
-## 🎯 Learning Outcomes Demonstrated
+## Learning Outcomes Demonstrated
 
-### CLO01: Java Programming ✅
+### CLO01: Java Programming
 - Medium-sized application with professional coding standards
 - Efficient algorithms and data structures
 - Proper use of Java Collections Framework
 
-### CLO02: Object-Oriented Development ✅
+### CLO02: Object-Oriented Development
 - Analysis and design of solution
 - UML-worthy class hierarchy
 - SOLID principles applied
 
-### CLO03: Collections Framework ✅
+### CLO03: Collections Framework
 - Lists, Maps, Streams used throughout
 - Proper use of generics
 - Efficient data management
 
-### CLO04: Advanced Concepts ✅
+### CLO04: Advanced Concepts
 - JavaFX GUI development
 - Event handling and user interaction
 - Database-ready architecture
 
-### CLO05: Design Patterns ✅
+### CLO05: Design Patterns
 - Singleton (AppContext)
 - MVC (entire application)
 - Repository (data access)
@@ -285,7 +285,7 @@ Exception (built-in)
 
 ---
 
-## 🧪 Testing the Application
+## Testing the Application
 
 ### Test Scenarios
 
@@ -316,14 +316,14 @@ Exception (built-in)
 
 ---
 
-## 📁 Project Files
+## Project Files
 
 ### Core Application Files
 - `CareHomeApp.java` - Main JavaFX launcher
 - `AppContext.java` - Singleton context manager
 - `pom.xml` - Maven configuration
 
-### FXML Views (5 tabs)
+### FXML Views
 - `MainView.fxml` - Main tab container
 - `ResidentsView.fxml` - Resident management
 - `StaffView.fxml` - Staff management
@@ -343,7 +343,7 @@ Exception (built-in)
 
 ---
 
-## 🚀 Running Instructions
+## Running Instructions
 
 ### Method 1: Maven (Recommended)
 ```bash
@@ -366,7 +366,7 @@ run-app.bat
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -388,7 +388,7 @@ run-app.bat
 
 ---
 
-## 📈 Future Enhancements
+## Future Enhancements
 
 ### Planned Features
 - **Database Persistence**: Replace in-memory with H2 database
@@ -406,7 +406,7 @@ run-app.bat
 
 ---
 
-## 👨‍🎓 Student Information
+## Student Information
 
 **Student**: Medha Aluka  
 **Student ID**: S4154047  
@@ -426,22 +426,20 @@ run-app.bat
 
 ---
 
-## 📞 Contact & Support
+## Contact & Support
 
 **GitHub Repository**: [https://github.com/Medha-Aluka/S4154047_AlukaSaiMedha_Assignment2.git](https://github.com/Medha-Aluka/S4154047_AlukaSaiMedha_Assignment2.git)
 
 **Alternative Repository**: [https://github.com/Medha-Aluka/Advance-Programming-assignment.git](https://github.com/Medha-Aluka/Advance-Programming-assignment.git)
 
-For questions or issues, please refer to the documentation files or create an issue in the GitHub repository.
-
 ---
 
-## 📄 License
+## License
 
 This project is created as an academic assignment for RMIT University COSC1295. All code is original work demonstrating advanced Java programming concepts and modern software development practices.
 
 ---
 
-**🎉 Thank you for exploring my Care Home Management System!**
+**Thank you for exploring my Care Home Management System!**
 
 *This project showcases professional-level Java development skills, modern GUI design, and comprehensive healthcare management functionality. Perfect for demonstrating object-oriented programming mastery and real-world application development.*
