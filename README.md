@@ -415,14 +415,14 @@ run-app.bat
 **Semester**: 2024  
 
 ### Assignment Requirements Met
-- ✅ Object-Oriented Design
-- ✅ Design Patterns Implementation
-- ✅ JavaFX GUI Development
-- ✅ Collections Framework Usage
-- ✅ Exception Handling
-- ✅ Business Logic Implementation
-- ✅ Audit Logging
-- ✅ Documentation
+- Object-Oriented Design
+- Design Patterns Implementation
+- JavaFX GUI Development
+- Collections Framework Usage
+- Exception Handling
+-Business Logic Implementation
+- Audit Logging
+- Documentation
 
 ---
 
