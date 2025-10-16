@@ -85,9 +85,15 @@
                            GridPane.columnIndex="1" GridPane.rowIndex="2"
                            style="-fx-font-size: 13px; -fx-padding: 8;"/>
                 
+                <Label text="🕐 Prescription Time:" GridPane.columnIndex="0" GridPane.rowIndex="3"
+                       style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <TextField fx:id="prescriptionTimeField" promptText="e.g., 08:00" prefWidth="250"
+                           GridPane.columnIndex="1" GridPane.rowIndex="3"
+                           style="-fx-font-size: 13px; -fx-padding: 8;"/>
+                
                 <Button text="✓ Administer Dose" onAction="#onAdminister" 
                         style="-fx-background-color: #6A1B9A; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 6; -fx-font-size: 13px;"
-                        GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        GridPane.columnIndex="1" GridPane.rowIndex="4"/>
             </GridPane>
         </VBox>
         
@@ -133,10 +139,11 @@
                 <TableView fx:id="adminTable" prefHeight="250" minHeight="250"
                            style="-fx-background-radius: 6; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-border-radius: 6;">
                     <columns>
-                        <TableColumn fx:id="adminMedicineColumn" text="💊 Medicine" prefWidth="150"/>
-                        <TableColumn fx:id="adminDoseColumn" text="⚖️ Dose" prefWidth="100"/>
+                        <TableColumn fx:id="adminMedicineColumn" text="💊 Medicine" prefWidth="120"/>
+                        <TableColumn fx:id="adminDoseColumn" text="⚖️ Dose" prefWidth="80"/>
+                        <TableColumn fx:id="adminPrescriptionTimeColumn" text="🕐 Prescription Time" prefWidth="120"/>
                         <TableColumn fx:id="nurseColumn" text="👩‍⚕️ Nurse" prefWidth="100"/>
-                        <TableColumn fx:id="adminDateColumn" text="📅 Date/Time" prefWidth="200"/>
+                        <TableColumn fx:id="adminDateColumn" text="📅 Date/Time" prefWidth="180"/>
                     </columns>
                 </TableView>
             </VBox>

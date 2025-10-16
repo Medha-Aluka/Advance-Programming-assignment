@@ -34,6 +34,7 @@ public class PrescriptionsController {
     @FXML private ComboBox<Resident> residentBox2;
     @FXML private TextField medicineField2;
     @FXML private TextField doseField2;
+    @FXML private TextField prescriptionTimeField;
     
     @FXML private Label statusLabel;
     
@@ -49,6 +50,7 @@ public class PrescriptionsController {
     @FXML private TableView<AdministrationRecord> adminTable;
     @FXML private TableColumn<AdministrationRecord, String> adminMedicineColumn;
     @FXML private TableColumn<AdministrationRecord, String> adminDoseColumn;
+    @FXML private TableColumn<AdministrationRecord, String> adminPrescriptionTimeColumn;
     @FXML private TableColumn<AdministrationRecord, String> nurseColumn;
     @FXML private TableColumn<AdministrationRecord, String> adminDateColumn;
     
@@ -85,6 +87,7 @@ public class PrescriptionsController {
         // Setup administration table columns
         adminMedicineColumn.setCellValueFactory(new PropertyValueFactory<>("medicine"));
         adminDoseColumn.setCellValueFactory(new PropertyValueFactory<>("dose"));
+        adminPrescriptionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("prescriptionTime"));
         nurseColumn.setCellValueFactory(cellData -> 
             new javafx.beans.property.SimpleStringProperty(cellData.getValue().getNurseId())
         );
@@ -192,9 +195,10 @@ public class PrescriptionsController {
         
         String medicine = medicineField2.getText().trim();
         String dose = doseField2.getText().trim();
+        String prescriptionTime = prescriptionTimeField.getText().trim();
         
         if (medicine.isEmpty() || dose.isEmpty()) {
-            showStatus("Please fill in all fields", "red");
+            showStatus("Please fill in medicine and dose fields", "red");
             return;
         }
         
@@ -208,7 +212,8 @@ public class PrescriptionsController {
                 currentUser, 
                 r.getId(),
                 medicine, 
-                dose
+                dose,
+                prescriptionTime.isEmpty() ? null : prescriptionTime
             );
             
             showStatus("Medication administered to " + r.getName(), "green");
@@ -216,6 +221,7 @@ public class PrescriptionsController {
             // Clear fields
             medicineField2.clear();
             doseField2.clear();
+            prescriptionTimeField.clear();
             
             // Refresh view
             viewResidentBox.setValue(r);
