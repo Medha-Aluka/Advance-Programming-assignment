@@ -99,10 +99,10 @@ public class ResidentsController {
             if (residentOpt.isPresent()) {
                 Resident resident = residentOpt.get();
                 
-                // Color code by gender: Blue for Male, Pink for Female
+                // Color code by gender: Blue for Male, Red for Female
                 String bgColor = switch (resident.getGender()) {
                     case MALE -> "#b3d9ff"; // Light blue
-                    case FEMALE -> "#ffb3d9"; // Light pink
+                    case FEMALE -> "#ffb3b3"; // Light red
                     case OTHER -> "#d9b3ff"; // Light purple
                 };
                 box.setStyle(box.getStyle() + "-fx-background-color: " + bgColor + ";");

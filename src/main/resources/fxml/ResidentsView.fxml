@@ -116,7 +116,7 @@
                     <Label text="ℹ️" style="-fx-font-size: 16px;"/>
                     <Label text="Legend:" style="-fx-font-weight: bold; -fx-font-size: 13px;"/>
                     <Label text="🔵 Male" style="-fx-text-fill: #1976D2; -fx-font-weight: bold;"/>
-                    <Label text="🔴 Female" style="-fx-text-fill: #C2185B; -fx-font-weight: bold;"/>
+                    <Label text="🔴 Female" style="-fx-text-fill: #CC0000; -fx-font-weight: bold;"/>
                     <Label text="⚪ Vacant" style="-fx-text-fill: #757575; -fx-font-weight: bold;"/>
                 </HBox>
             </VBox>
