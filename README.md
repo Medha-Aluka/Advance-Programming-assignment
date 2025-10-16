@@ -443,3 +443,6 @@ This project is created as an academic assignment for RMIT University COSC1295. 
 **Thank you for exploring my Care Home Management System!**
 
 *This project showcases professional-level Java development skills, modern GUI design, and comprehensive healthcare management functionality. Perfect for demonstrating object-oriented programming mastery and real-world application development.*
+
+---
+*Last updated: $(date)*
