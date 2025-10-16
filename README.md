@@ -37,7 +37,7 @@ This is a comprehensive **Care Home Management System** built using **JavaFX** t
    ```
 
 2. **Build and run:**
-   ```bash
+```bash
    # Windows
    .\mvnw.cmd javafx:run
    
@@ -46,9 +46,9 @@ This is a comprehensive **Care Home Management System** built using **JavaFX** t
    ```
 
 3. **Login with default credentials:**
-   - **Manager**: `mary` / `pass` (Full access)
-   - **Doctor**: `sam` / `pass` (Prescription management)
-   - **Nurse**: `kim` / `pass` (Medication administration)
+   - **Manager**: `admin` / `admin` (Full access)
+   - **Doctor**: `parthu` / `parthu` (Prescription management)
+   - **Nurse**: `madhu` / `madhu` (Medication administration)
 
 ---
 
@@ -241,13 +241,13 @@ Exception (built-in)
 
 ### Sample Data
 **Staff Members:**
-- Manager Mary [M-1] (mary/pass)
-- Dr. Sam [D-1] (sam/pass)
-- Nurse Kim [N-1] (kim/pass)
+- Manager: admin (admin/admin)
+- Dr. Akshay (parthu/parthu)
+- Nurse Madhu (madhu/madhu)
 
 **Residents:**
-- Alex [R-1] - Male
-- Mia [R-2] - Female
+- Kishan - Male
+- Medha - Female
 
 **Bed Layout:**
 - Ward 1: 3 rooms with multiple beds
@@ -379,7 +379,7 @@ run-app.bat
    - Check internet connection for dependencies
 
 3. **Login Issues**
-   - Use default credentials: mary/pass, sam/pass, kim/pass
+   - Use default credentials: admin/admin, parthu/parthu, madhu/madhu
    - Check database initialization
 
 4. **GUI Not Loading**
